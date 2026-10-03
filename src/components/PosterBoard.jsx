@@ -186,10 +186,22 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
           </div>
 
           {/* Phone numbers */}
-          <div className="pt-1.5 border-t border-stone-200 flex items-center justify-center gap-2 text-xs sm:text-sm font-black text-[#1e3a8a]">
-            <span>📞 {HOTEL_INFO.phones[0]}</span>
+          <div className="pt-1.5 border-t border-stone-200 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black text-[#1e3a8a] flex-wrap">
+            <a
+              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : '+917795085362'}`}
+              onClick={(e) => e.stopPropagation()}
+              className="hover:underline hover:text-blue-700"
+            >
+              📞 {HOTEL_INFO.phones[0]}
+            </a>
             <span>|</span>
-            <span>{HOTEL_INFO.phones[1]}</span>
+            <a
+              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+919916065117'}`}
+              onClick={(e) => e.stopPropagation()}
+              className="hover:underline hover:text-blue-700"
+            >
+              {HOTEL_INFO.phones[1]}
+            </a>
           </div>
         </div>
 

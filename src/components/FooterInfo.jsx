@@ -22,23 +22,23 @@ export default function FooterInfo({ onCopyPhone, onOpenAdmin, isAdminLoggedIn }
             <span>Rajanukunte, Bengaluru</span>
           </span>
           <span>•</span>
-          <button
-            onClick={() => onCopyPhone(HOTEL_INFO.phones[0])}
+          <a
+            href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : '+917795085362'}`}
             className="text-amber-700 dark:text-amber-400 font-bold hover:underline flex items-center gap-1"
-            title="Click to copy"
+            title="Click to call"
           >
             <Phone className="w-3 h-3" />
             <span>{HOTEL_INFO.phones[0]}</span>
-          </button>
+          </a>
           <span>/</span>
-          <button
-            onClick={() => onCopyPhone(HOTEL_INFO.phones[1])}
+          <a
+            href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+919916065117'}`}
             className="text-amber-700 dark:text-amber-400 font-bold hover:underline flex items-center gap-1"
-            title="Click to copy"
+            title="Click to call"
           >
             <Phone className="w-3 h-3" />
             <span>{HOTEL_INFO.phones[1]}</span>
-          </button>
+          </a>
         </div>
 
         {/* Subtle Admin Link */}
