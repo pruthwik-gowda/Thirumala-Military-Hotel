@@ -186,13 +186,7 @@ export default function App() {
           onViewModeChange={setViewMode}
         />
 
-        {/* 4. Sunday Special Leg Soup Banner */}
-        <SundaySpecialBanner
-          legSoupItem={legSoupItem}
-          onOpenCallModal={() => setIsCallModalOpen(true)}
-        />
-
-        {/* 5. Menu Display Area */}
+        {/* 4. Menu Display Area */}
         <section id="menu-section" className="space-y-3">
           {viewMode === 'poster' && (
             <PosterBoard
@@ -219,6 +213,12 @@ export default function App() {
             />
           )}
         </section>
+
+        {/* 5. Sunday Special Leg Soup Banner */}
+        <SundaySpecialBanner
+          legSoupItem={legSoupItem}
+          onOpenCallModal={() => setIsCallModalOpen(true)}
+        />
 
         {/* 6. Outdoor Catering & Hotel Contact Footer Card */}
         <FooterInfo
