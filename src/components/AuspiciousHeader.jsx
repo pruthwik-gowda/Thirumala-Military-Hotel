@@ -7,11 +7,16 @@ export default function AuspiciousHeader({ isDark, onToggleTheme, onOpenAdmin, i
     <div className="w-full bg-[#781212] text-[#fef08a] py-2 px-3 border-b border-amber-500/40 sticky top-0 z-40 shadow-md">
       <div className="max-w-xl mx-auto flex items-center justify-between text-[11px] sm:text-xs font-bold tracking-wide">
         
-        {/* Sacred Invocations */}
-        <div className="flex items-center gap-1.5 kannada-text truncate">
-          <span>{HOTEL_INFO.invocations[0]}</span>
-          <span className="text-amber-300">🪔</span>
-          <span className="hidden sm:inline">{HOTEL_INFO.invocations[1]}</span>
+        {/* Hotel Brand Title */}
+        <div className="flex items-center gap-2 min-w-0 pr-2">
+          <img
+            src="/logo-tm.png"
+            alt="TM Emblem"
+            className="w-5 h-5 rounded-full object-contain bg-white border border-amber-400 p-0.5 shrink-0"
+          />
+          <span className="font-extrabold text-amber-200 text-xs sm:text-sm tracking-wide serif-text truncate">
+            {HOTEL_INFO.englishName}
+          </span>
         </div>
 
         {/* Action Controls: Admin Button & Theme Toggle */}
