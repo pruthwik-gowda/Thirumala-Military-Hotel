@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Sparkles, ShieldCheck } from 'lucide-react';
+import { Phone, MapPin, ShieldCheck } from 'lucide-react';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
 export default function FooterInfo({ onCopyPhone, onOpenAdmin, isAdminLoggedIn }) {
@@ -7,8 +7,7 @@ export default function FooterInfo({ onCopyPhone, onOpenAdmin, isAdminLoggedIn }
     <footer className="space-y-3 pt-2">
       {/* Catering & Hotel Info Card */}
       <div className="bg-white/90 dark:bg-[#191411] rounded-2xl p-4 border border-amber-200 dark:border-[#3b2b20] text-center space-y-2 text-xs text-stone-600 dark:text-stone-400 shadow-sm transition-colors">
-        <p className="font-extrabold text-amber-800 dark:text-amber-400 flex items-center justify-center gap-1.5 text-xs sm:text-sm">
-          <Sparkles className="w-4 h-4 text-amber-500" />
+        <p className="font-extrabold text-amber-800 dark:text-amber-400 flex items-center justify-center text-xs sm:text-sm">
           <span>{HOTEL_INFO.cateringTag}</span>
         </p>
 

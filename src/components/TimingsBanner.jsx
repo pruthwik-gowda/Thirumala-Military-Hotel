@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Sparkles } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
 export default function TimingsBanner() {
@@ -31,8 +31,7 @@ export default function TimingsBanner() {
       <div className="grid grid-cols-2 gap-2 text-center text-xs">
         {/* Morning Session */}
         <div className="bg-white dark:bg-[#140f0c] p-2 rounded-xl border border-amber-200 dark:border-stone-800 shadow-sm flex flex-col justify-center">
-          <span className="text-[10px] text-stone-500 dark:text-stone-400 font-bold flex items-center justify-center gap-1">
-            <span>🌅</span>
+          <span className="text-[10px] text-stone-500 dark:text-stone-400 font-bold flex items-center justify-center">
             <span>Morning / Lunch</span>
           </span>
           <span className="text-xs sm:text-sm font-black text-stone-900 dark:text-amber-300 mt-0.5">
@@ -45,8 +44,7 @@ export default function TimingsBanner() {
 
         {/* Evening Session */}
         <div className="bg-white dark:bg-[#140f0c] p-2 rounded-xl border border-amber-200 dark:border-stone-800 shadow-sm flex flex-col justify-center">
-          <span className="text-[10px] text-stone-500 dark:text-stone-400 font-bold flex items-center justify-center gap-1">
-            <span>🌙</span>
+          <span className="text-[10px] text-stone-500 dark:text-stone-400 font-bold flex items-center justify-center">
             <span>Evening / Dinner</span>
           </span>
           <span className="text-xs sm:text-sm font-black text-stone-900 dark:text-amber-300 mt-0.5">
@@ -61,7 +59,6 @@ export default function TimingsBanner() {
       {/* Special Sunday Timing Highlight Strip */}
       <div className="mt-2.5 bg-gradient-to-r from-amber-200/90 via-yellow-200/90 to-amber-200/90 dark:from-amber-950 dark:via-yellow-950/60 dark:to-amber-950 border border-amber-400 dark:border-amber-600/70 rounded-xl p-2 px-3 flex items-center justify-between gap-2 shadow-sm">
         <div className="flex items-center gap-1.5 min-w-0">
-          <span className="text-base leading-none">⚡</span>
           <div className="leading-tight">
             <div className="text-[11px] sm:text-xs font-black text-red-900 dark:text-amber-300">
               Sundays: {HOTEL_INFO.timings.sunday}

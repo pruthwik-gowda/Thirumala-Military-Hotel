@@ -42,7 +42,6 @@ export default function SearchAndFilters({
         {/* Sunday Timings Legend */}
         <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 dark:from-amber-950/80 dark:via-stone-900 dark:to-amber-950/80 border border-amber-400/80 dark:border-amber-600/50 rounded-xl px-2.5 py-1.5 flex items-center justify-between text-xs shadow-sm mb-1.5">
           <div className="flex items-center gap-1.5">
-            <span className="text-base leading-none">⚡</span>
             <span className="font-black text-red-800 dark:text-amber-300 uppercase tracking-wide text-[10px] sm:text-[11px]">
               Sunday Timings:
             </span>
@@ -67,9 +66,8 @@ export default function SearchAndFilters({
                 : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/60'
             }`}
           >
-            <span className="text-xs sm:text-sm font-black leading-tight flex items-center gap-1">
-              <span>🌅</span>
-              <span>11:00 AM – 4:00 PM</span>
+            <span className="text-xs sm:text-sm font-black leading-tight">
+              11:00 AM – 4:00 PM
             </span>
             <span className="text-[10px] opacity-90 leading-tight kannada-text font-bold">
               ಬೆಳಗಿನ ಊಟ • Morning
@@ -86,9 +84,8 @@ export default function SearchAndFilters({
                 : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/60'
             }`}
           >
-            <span className="text-xs sm:text-sm font-black leading-tight flex items-center gap-1">
-              <span>🌙</span>
-              <span>6:00 PM – 9:30 PM</span>
+            <span className="text-xs sm:text-sm font-black leading-tight">
+              6:00 PM – 9:30 PM
             </span>
             <span className="text-[10px] opacity-90 leading-tight kannada-text font-bold">
               ಸಂಜೆಯ ಊಟ • Evening

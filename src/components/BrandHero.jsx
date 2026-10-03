@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Navigation, Flame, Award } from 'lucide-react';
+import { Phone, MapPin, Navigation } from 'lucide-react';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
 export default function BrandHero({ onOpenCallModal, onOpenEmblemView }) {
@@ -35,12 +35,10 @@ export default function BrandHero({ onOpenCallModal, onOpenEmblemView }) {
         {/* Hotel Details */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
-            <span className="bg-[#781212] text-amber-100 text-[9px] sm:text-[10px] font-extrabold uppercase px-2 py-1 rounded-full border border-red-800/60 shadow-sm inline-flex items-center gap-1 leading-none">
-              <Award className="w-3 h-3 text-amber-300 shrink-0" />
-              <span className="leading-none">Official Menu</span>
+            <span className="bg-[#781212] text-amber-100 text-[9px] sm:text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border border-red-800/60 shadow-sm inline-flex items-center leading-none">
+              Official Menu
             </span>
-            <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 border border-amber-400 dark:border-amber-600/40 text-[9px] sm:text-[10px] font-bold px-2 py-1 rounded-full inline-flex items-center gap-1 leading-none">
-              <Flame className="w-3 h-3 text-orange-500 shrink-0" />
+            <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 border border-amber-400 dark:border-amber-600/40 text-[9px] sm:text-[10px] font-bold px-2.5 py-1 rounded-full inline-flex items-center leading-none">
               <span className="inline-flex items-center gap-1 leading-none">
                 <span className="kannada-text inline-block translate-y-[2px]">ಒಲೆ ಊಟ</span>
                 <span className="opacity-50 text-[8px]">•</span>

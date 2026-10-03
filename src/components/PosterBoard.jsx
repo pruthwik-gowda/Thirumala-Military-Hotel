@@ -1,6 +1,5 @@
 import React from 'react';
-import { Maximize2, Phone, MapPin } from 'lucide-react';
-import FoodHighlights from './FoodHighlights';
+import { Maximize2 } from 'lucide-react';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
 export default function PosterBoard({ items, activeTiming, showPrices = false, isLightbox = false, onOpenLightbox, onOpenCallModal }) {
@@ -29,42 +28,20 @@ export default function PosterBoard({ items, activeTiming, showPrices = false, i
         </div>
 
         {/* Brand Title Header */}
-        <div className="flex items-center justify-between gap-2.5 pt-0.5">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-600 bg-white p-0.5 shrink-0 shadow-sm overflow-hidden flex items-center justify-center">
-            <img
-              src="/logo-tm.png"
-              alt="Thirumala Military Hotel Emblem"
-              className="w-full h-full object-contain rounded-full"
-            />
-          </div>
-
-          <div className="flex-1 text-center">
-            <h2 className="text-xl sm:text-2xl font-black text-[#dc2626] leading-none kannada-text drop-shadow-sm">
-              {HOTEL_INFO.kannadaName}
-            </h2>
-            <div className="flex items-center justify-center gap-2 text-[10px] sm:text-[11px] font-bold text-amber-900 mt-1">
-              <span className="kannada-text">ಒಲೆ ಊಟ...!</span>
-              <span>•</span>
-              <span className="kannada-text">ನಾಟಿ ಸ್ಟೈಲ್...!</span>
-            </div>
-            <p className="text-xs sm:text-sm font-extrabold text-[#15803d] tracking-wide serif-text">
-              {HOTEL_INFO.englishName}
-            </p>
-          </div>
-
-          {/* Stove Woodfire Stamp */}
-          <div className="w-12 h-12 rounded-lg border border-amber-600 bg-amber-950 flex flex-col items-center justify-center text-center p-0.5 text-white shrink-0 shadow-sm">
-            <span className="text-sm">🔥</span>
-            <span className="text-[7px] font-bold kannada-text leading-none text-amber-300">ಒಲೆ ಊಟ</span>
-          </div>
+        <div className="text-center pt-0.5">
+          <h2 className="text-xl sm:text-2xl font-black text-[#dc2626] leading-none kannada-text drop-shadow-sm">
+            {HOTEL_INFO.kannadaName}
+          </h2>
+          <p className="text-xs sm:text-sm font-extrabold text-[#15803d] tracking-wide serif-text mt-1">
+            {HOTEL_INFO.englishName}
+          </p>
         </div>
 
         {/* Menu Timing Ribbon */}
         <div className="text-center my-1">
-          <span className="inline-flex items-center gap-1.5 bg-[#881313] text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
-            <span>{isEvening ? '🌙' : '🌅'}</span>
+          <span className="inline-flex items-center justify-center bg-[#881313] text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
             <span>
-              -: {isEvening ? '6:00 PM – 9:30 PM • ಸಂಜೆಯ ವಿಶೇಷ ಊಟ (Evening Menu)' : '11:00 AM – 4:00 PM • ಬೆಳಗಿನ ಊಟ'} :-
+              -: {isEvening ? '6:00 PM – 9:30 PM • ಸಂಜೆಯ ಊಟ' : '11:00 AM – 4:00 PM • ಬೆಳಗಿನ ಊಟ'} :-
             </span>
           </span>
         </div>
@@ -166,56 +143,6 @@ export default function PosterBoard({ items, activeTiming, showPrices = false, i
             </div>
           </div>
         )}
-
-        {/* 5 Food Showcase Cards */}
-        <FoodHighlights />
-
-        {/* Address & Catering Box */}
-        <div className="bg-white rounded-lg p-2.5 border border-stone-300 text-stone-900 space-y-1.5">
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex-1">
-              <p className="font-extrabold text-[11px] sm:text-xs text-red-950 leading-tight">
-                {HOTEL_INFO.address}
-              </p>
-              <div className="mt-1 bg-yellow-100 border border-yellow-400 text-red-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full inline-block">
-                Parcel Extra Charges • Thank You Visit Again...!
-              </div>
-            </div>
-
-            {/* Location Map button */}
-            <a
-              href={HOTEL_INFO.mapsQuery}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="w-13 h-13 bg-stone-100 hover:bg-amber-100 border border-stone-700 rounded-lg p-1 flex flex-col items-center justify-center shrink-0 shadow-inner transition active:scale-95"
-              title="Open Google Maps directions"
-            >
-              <span className="text-[8px] font-bold text-stone-700">Map</span>
-              <span className="text-xl leading-none">📍</span>
-            </a>
-          </div>
-
-          {/* Phone numbers */}
-          <div className="pt-1.5 border-t border-stone-200 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black text-[#1e3a8a] flex-wrap">
-            <a
-              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : '+917795085362'}`}
-              onClick={(e) => e.stopPropagation()}
-              className="hover:underline hover:text-blue-700"
-            >
-              📞 {HOTEL_INFO.phones[0]}
-            </a>
-            <span>|</span>
-            <a
-              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+917349729646'}`}
-              onClick={(e) => e.stopPropagation()}
-              className="hover:underline hover:text-blue-700"
-            >
-              {HOTEL_INFO.phones[1]}
-            </a>
-          </div>
-        </div>
-
       </div>
 
       {/* Floating Enlarge Indicator Badge */}
