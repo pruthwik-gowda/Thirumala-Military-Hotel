@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flame, Sparkles, Phone, AlertCircle } from 'lucide-react';
 
-export default function DishCardView({ items, onOpenCallModal }) {
+export default function DishCardView({ items, showPrices = false, onOpenCallModal }) {
   if (items.length === 0) {
     return (
       <div className="bg-white dark:bg-[#1c1613] rounded-2xl p-8 border border-amber-200 dark:border-[#3e2c21] text-center space-y-2">
@@ -77,23 +77,28 @@ export default function DishCardView({ items, onOpenCallModal }) {
               <p className="text-xs sm:text-sm font-bold text-stone-700 dark:text-stone-200">
                 {dish.englishName}
               </p>
-              {dish.portion && (
-                <p className="text-[11px] text-stone-500 dark:text-stone-400">
-                  {dish.portion}
-                </p>
-              )}
             </div>
 
-            {/* Bottom Row: Price & Call Button */}
+            {/* Bottom Row: Availability / Price & Call Button */}
             <div className="flex items-center justify-between pt-2.5 mt-2 border-t border-stone-100 dark:border-stone-800/80">
-              <div className="flex items-baseline gap-1">
-                <span className="text-lg font-black text-[#15803d] dark:text-emerald-400 leading-none">
-                  ₹{dish.price}
-                </span>
-                <span className="text-[10px] text-stone-400 dark:text-stone-500 font-medium">
-                  / portion
-                </span>
-              </div>
+              {showPrices ? (
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg font-black text-[#15803d] dark:text-emerald-400 leading-none">
+                    ₹{dish.price}
+                  </span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-1.5">
+                  <span className={`inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full ${
+                    dish.inStock
+                      ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60'
+                      : 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60'
+                  }`}>
+                    {dish.inStock && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />}
+                    <span>{dish.inStock ? 'Available' : 'Sold Out'}</span>
+                  </span>
+                </div>
+              )}
 
               <button
                 onClick={onOpenCallModal}

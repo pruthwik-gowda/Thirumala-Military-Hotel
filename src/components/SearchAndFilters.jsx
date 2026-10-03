@@ -140,7 +140,7 @@ export default function SearchAndFilters({
                 ? 'bg-amber-600 text-white font-bold shadow-sm'
                 : 'text-stone-600 dark:text-stone-400 hover:text-stone-900'
             }`}
-            title="Card View with Pricing"
+            title="Card View"
           >
             <LayoutGrid className="w-3.5 h-3.5" />
             <span className="hidden sm:inline text-[10px]">Cards</span>

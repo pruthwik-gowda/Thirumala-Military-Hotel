@@ -23,6 +23,8 @@ export default function AdminModal({
   isOpen,
   onClose,
   items,
+  showPrices = false,
+  onToggleShowPrices,
   onAddItem,
   onUpdateItem,
   onDeleteItem,
@@ -338,6 +340,31 @@ export default function AdminModal({
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset to Default Menu</span>
+              </button>
+            </div>
+
+            {/* Price Visibility on Customer Menu Toggle Card */}
+            <div className="bg-amber-50 dark:bg-[#231b16] p-3 rounded-xl border border-amber-200 dark:border-amber-900/60 flex items-center justify-between gap-2">
+              <div>
+                <span className="font-bold text-xs text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+                  <span>💰</span>
+                  <span>Customer Menu Prices</span>
+                </span>
+                <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-0.5">
+                  {showPrices ? 'Prices are currently visible on menus.' : 'Prices are currently hidden on menus.'}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={onToggleShowPrices}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm active:scale-95 ${
+                  showPrices
+                    ? 'bg-emerald-600 text-white'
+                    : 'bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-700'
+                }`}
+              >
+                {showPrices ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                <span>{showPrices ? 'Showing Prices' : 'Prices Hidden'}</span>
               </button>
             </div>
 

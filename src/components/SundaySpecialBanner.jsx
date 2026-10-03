@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flame, Sparkles, Phone } from 'lucide-react';
 
-export default function SundaySpecialBanner({ legSoupItem, onOpenCallModal }) {
+export default function SundaySpecialBanner({ legSoupItem, showPrices = false, onOpenCallModal }) {
   const price = legSoupItem ? legSoupItem.price : 120;
   const inStock = legSoupItem ? legSoupItem.inStock : true;
 
@@ -26,10 +26,12 @@ export default function SundaySpecialBanner({ legSoupItem, onOpenCallModal }) {
           </p>
 
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm font-black text-amber-300 bg-black/50 px-2 py-0.5 rounded-lg border border-amber-400/30">
-              ₹{price}
-            </span>
-            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+            {showPrices && (
+              <span className="text-sm font-black text-amber-300 bg-black/50 px-2 py-0.5 rounded-lg border border-amber-400/30">
+                ₹{price}
+              </span>
+            )}
+            <span className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
               inStock ? 'bg-emerald-800/80 text-emerald-200' : 'bg-red-900/80 text-red-200'
             }`}>
               {inStock ? 'Available Sundays' : 'Sold Out for Today'}

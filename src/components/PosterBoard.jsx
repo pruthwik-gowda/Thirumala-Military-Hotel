@@ -3,7 +3,7 @@ import { Maximize2, Phone, MapPin } from 'lucide-react';
 import FoodHighlights from './FoodHighlights';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
-export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpenCallModal }) {
+export default function PosterBoard({ items, activeTiming, showPrices = false, onOpenLightbox, onOpenCallModal }) {
   // Balanced columns: always fill the left column first, then right column
   const midPoint = Math.ceil(items.length / 2);
   const leftColumnItems = items.slice(0, midPoint);
@@ -62,7 +62,7 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
           <span className="inline-flex items-center gap-1.5 bg-[#881313] text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
             <span>{isEvening ? '🌙' : '🌅'}</span>
             <span>
-              -: {isEvening ? '6:00 PM – 9:30 PM • ಸಂಜೆಯ ಊಟ' : '11:00 AM – 4:00 PM • ಬೆಳಗಿನ ಊಟ'} :-
+              -: {isEvening ? '6:00 PM – 9:30 PM • ಸಂಜೆಯ ವಿಶೇಷ ಊಟ (Evening Menu)' : '11:00 AM – 4:00 PM • ಬೆಳಗಿನ ಊಟ'} :-
             </span>
           </span>
         </div>
@@ -74,63 +74,28 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
           </span>
         </div>
 
-        {/* 2-Column Table Grid (Exact 25 items from poster) */}
-        <div className="border-2 border-[#15803d] rounded-lg overflow-hidden bg-white text-[11px] sm:text-xs shadow-inner">
-          <div className="grid grid-cols-2 divide-x divide-[#15803d]">
-            
-            {/* Left Column: Mutton & Staples */}
-            <div className="divide-y divide-[#15803d]/40">
-              {leftColumnItems.map((dish) => {
-                const isSpecialPortion = isEvening && (dish.portion && dish.portion.includes('pc'));
-                return (
+        {/* 2-Column Table Grid */}
+        {items.length === 0 ? (
+          <div className="bg-white rounded-lg p-5 border border-stone-300 text-center space-y-1">
+            <p className="font-bold text-xs sm:text-sm text-stone-800">
+              No dishes found matching this filter in this session.
+            </p>
+            <p className="text-[11px] text-stone-500">
+              {isEvening
+                ? 'Evening Menu serves: Chicken Biryani, Kebab, Chilli Chicken, Chicken Chops, Parotta, Chicken Lollipop, Eggs. Other items served in Morning Session (11 AM – 4 PM).'
+                : 'Try clearing your search query or switching categories.'}
+            </p>
+          </div>
+        ) : (
+          <div className="border-2 border-[#15803d] rounded-lg overflow-hidden bg-white text-[11px] sm:text-xs shadow-inner">
+            <div className="grid grid-cols-2 divide-x divide-[#15803d]">
+              
+              {/* Left Column */}
+              <div className="divide-y divide-[#15803d]/40">
+                {leftColumnItems.map((dish) => (
                   <div
                     key={dish.id}
-                    className={`p-1 px-1.5 flex justify-between items-center gap-1 transition-colors ${
-                      isSpecialPortion ? 'bg-amber-100/70' : 'hover:bg-stone-50'
-                    }`}
-                  >
-                    <div className="flex flex-col min-w-0">
-                      <span className="font-bold text-blue-900 kannada-text leading-tight truncate">
-                        {dish.kannadaName}
-                      </span>
-                      {dish.portion && isEvening && (
-                        <span className="text-[9px] font-black text-red-700 leading-tight">
-                          {dish.englishName} ({dish.portion})
-                        </span>
-                      )}
-                      {(!dish.portion || !isEvening) && (
-                        <span className="font-bold text-stone-800 text-[10px] leading-tight truncate">
-                          {dish.englishName}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="shrink-0 flex items-center gap-1">
-                      {!dish.inStock ? (
-                        <span className="text-[8px] bg-red-100 text-red-700 font-extrabold px-1 rounded border border-red-300">
-                          Sold Out
-                        </span>
-                      ) : (
-                        <span className="font-black text-[#15803d] text-[10px] sm:text-xs">
-                          ₹{dish.price}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Right Column: Chicken & Soups */}
-            <div className="divide-y divide-[#15803d]/40">
-              {rightColumnItems.map((dish) => {
-                const isSpecialPortion = isEvening && (dish.portion && dish.portion.includes('pc'));
-                return (
-                  <div
-                    key={dish.id}
-                    className={`p-1 px-1.5 flex justify-between items-center gap-1 transition-colors ${
-                      isSpecialPortion ? 'bg-amber-100/70' : 'hover:bg-stone-50'
-                    }`}
+                    className="p-1 px-1.5 flex justify-between items-center gap-1 hover:bg-stone-50 transition-colors"
                   >
                     <div className="flex flex-col min-w-0">
                       <span className="font-bold text-blue-900 kannada-text leading-tight truncate">
@@ -146,19 +111,59 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
                         <span className="text-[8px] bg-red-100 text-red-700 font-extrabold px-1 rounded border border-red-300">
                           Sold Out
                         </span>
-                      ) : (
+                      ) : showPrices ? (
                         <span className="font-black text-[#15803d] text-[10px] sm:text-xs">
                           ₹{dish.price}
                         </span>
-                      )}
+                      ) : null}
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+              </div>
 
+              {/* Right Column */}
+              <div className="divide-y divide-[#15803d]/40">
+                {rightColumnItems.map((dish) => (
+                  <div
+                    key={dish.id}
+                    className="p-1 px-1.5 flex justify-between items-center gap-1 hover:bg-stone-50 transition-colors"
+                  >
+                    <div className="flex flex-col min-w-0">
+                      <span className="font-bold text-blue-900 kannada-text leading-tight truncate">
+                        {dish.kannadaName}
+                      </span>
+                      <span className="font-bold text-stone-800 text-[10px] leading-tight truncate">
+                        {dish.englishName}
+                      </span>
+                    </div>
+
+                    <div className="shrink-0 flex items-center gap-1">
+                      {!dish.inStock ? (
+                        <span className="text-[8px] bg-red-100 text-red-700 font-extrabold px-1 rounded border border-red-300">
+                          Sold Out
+                        </span>
+                      ) : showPrices ? (
+                        <span className="font-black text-[#15803d] text-[10px] sm:text-xs">
+                          ₹{dish.price}
+                        </span>
+                      ) : null}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Symmetrical footer badge when columns are uneven (e.g. 7 evening dishes) */}
+                {rightColumnItems.length < leftColumnItems.length && (
+                  <div className="p-1 px-1.5 bg-amber-50/70 flex items-center justify-center text-center h-full min-h-[32px]">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-amber-900 kannada-text">
+                      🔥 ಬಿಸಿ ಬಿಸಿ ಸಂಜೆ ಊಟ
+                    </span>
+                  </div>
+                )}
+              </div>
+
+            </div>
           </div>
-        </div>
+        )}
 
         {/* 5 Food Showcase Cards */}
         <FoodHighlights />

@@ -34,9 +34,16 @@ export default function App() {
 
   const toggleTheme = () => setIsDark((prev) => !prev);
 
-  // Menu items state with LocalStorage persistence
+  // Menu items state with LocalStorage persistence and versioning
   const [menuItems, setMenuItems] = useState(() => {
     try {
+      const savedVersion = localStorage.getItem('tmh_menu_ver');
+      // If version is not 'v3', initialize with updated evening menu & items
+      if (savedVersion !== 'v3') {
+        localStorage.setItem('tmh_menu_ver', 'v3');
+        localStorage.setItem('tmh_menu_items', JSON.stringify(DEFAULT_MENU_ITEMS));
+        return DEFAULT_MENU_ITEMS;
+      }
       const saved = localStorage.getItem('tmh_menu_items');
       if (saved) {
         const parsed = JSON.parse(saved);
@@ -49,6 +56,20 @@ export default function App() {
     }
     return DEFAULT_MENU_ITEMS;
   });
+
+  // Price visibility: default to false (hidden) as requested
+  const [showPrices, setShowPrices] = useState(() => {
+    const saved = localStorage.getItem('tmh_show_prices');
+    return saved === 'true'; // Defaults to false (hidden)
+  });
+
+  const toggleShowPrices = () => {
+    setShowPrices((prev) => {
+      const next = !prev;
+      localStorage.setItem('tmh_show_prices', String(next));
+      return next;
+    });
+  };
 
   // Save to LocalStorage whenever menuItems changes
   const saveMenuItems = (newItems) => {
@@ -84,6 +105,7 @@ export default function App() {
   };
 
   const handleResetDefaults = () => {
+    localStorage.setItem('tmh_menu_ver', 'v3');
     saveMenuItems(DEFAULT_MENU_ITEMS);
   };
 
@@ -123,11 +145,23 @@ export default function App() {
     );
   }, [menuItems]);
 
+  // Designated order for Evening Menu:
+  // 1. Chicken Biryani, 2. Kebab, 3. Chilli Chicken, 4. Chicken Chops, 5. Parotta, 6. Chicken Lollipop, 7. Eggs
+  const eveningOrder = [
+    'tmh-2',  // Chicken Biryani
+    'tmh-15', // Kebab
+    'tmh-16', // Chilli Chicken
+    'tmh-14', // Chicken Chops
+    'tmh-11', // Parotta
+    'tmh-22', // Chicken Lollipop
+    'tmh-13'  // Eggs
+  ];
+
   // Filtered dishes for current view
   const filteredDishes = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
 
-    return menuItems.filter((dish) => {
+    let dishes = menuItems.filter((dish) => {
       // 1. Timing filter
       const matchesTiming =
         dish.timing === 'both' || dish.timing === activeTiming;
@@ -147,6 +181,20 @@ export default function App() {
 
       return matchesTiming && matchesCategory && matchesSearch;
     });
+
+    // If evening mode and not searching, sort in designated evening menu order
+    if (activeTiming === 'evening' && !q) {
+      dishes.sort((a, b) => {
+        const indexA = eveningOrder.indexOf(a.id);
+        const indexB = eveningOrder.indexOf(b.id);
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+        return 0;
+      });
+    }
+
+    return dishes;
   }, [menuItems, activeTiming, activeCategory, searchQuery]);
 
   return (
@@ -193,6 +241,7 @@ export default function App() {
             <PosterBoard
               items={filteredDishes}
               activeTiming={activeTiming}
+              showPrices={showPrices}
               onOpenLightbox={() =>
                 setLightboxData({
                   isOpen: true,
@@ -210,6 +259,7 @@ export default function App() {
           {viewMode === 'cards' && (
             <DishCardView
               items={filteredDishes}
+              showPrices={showPrices}
               onOpenCallModal={() => setIsCallModalOpen(true)}
             />
           )}
@@ -221,6 +271,7 @@ export default function App() {
         {/* 6. Sunday Special Leg Soup Banner */}
         <SundaySpecialBanner
           legSoupItem={legSoupItem}
+          showPrices={showPrices}
           onOpenCallModal={() => setIsCallModalOpen(true)}
         />
 
@@ -254,6 +305,7 @@ export default function App() {
             <PosterBoard
               items={filteredDishes}
               activeTiming={activeTiming}
+              showPrices={showPrices}
               onOpenLightbox={() => {}}
               onOpenCallModal={() => setIsCallModalOpen(true)}
             />
@@ -278,6 +330,8 @@ export default function App() {
         isOpen={isAdminModalOpen}
         onClose={() => setIsAdminModalOpen(false)}
         items={menuItems}
+        showPrices={showPrices}
+        onToggleShowPrices={toggleShowPrices}
         onAddItem={handleAddItem}
         onUpdateItem={handleUpdateItem}
         onDeleteItem={handleDeleteItem}
