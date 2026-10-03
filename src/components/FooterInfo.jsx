@@ -32,7 +32,7 @@ export default function FooterInfo({ onCopyPhone, onOpenAdmin, isAdminLoggedIn }
           </a>
           <span>/</span>
           <a
-            href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+919916065117'}`}
+            href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+917349729646'}`}
             className="text-amber-700 dark:text-amber-400 font-bold hover:underline flex items-center gap-1"
             title="Click to call"
           >

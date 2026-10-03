@@ -8,7 +8,7 @@ export default function PhoneModal({ isOpen, onClose, onCopyPhone }) {
   const phone1 = HOTEL_INFO.phones[0];
   const phone2 = HOTEL_INFO.phones[1];
   const tel1 = HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : `+917795085362`;
-  const tel2 = HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : `+919916065117`;
+  const tel2 = HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : `+917349729646`;
   const waNumber = HOTEL_INFO.waPhone || '917795085362';
   const whatsappUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
     'Hi, I would like to enquire about todays menu and availability'

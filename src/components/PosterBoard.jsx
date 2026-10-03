@@ -196,7 +196,7 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
             </a>
             <span>|</span>
             <a
-              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+919916065117'}`}
+              href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : '+917349729646'}`}
               onClick={(e) => e.stopPropagation()}
               className="hover:underline hover:text-blue-700"
             >
