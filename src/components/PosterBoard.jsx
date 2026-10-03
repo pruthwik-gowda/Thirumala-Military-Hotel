@@ -29,7 +29,7 @@ export default function PosterBoard({ items, activeTiming, showPrices = false, i
 
         {/* Brand Title Header */}
         <div className="text-center pt-0.5">
-          <h2 className="text-xl sm:text-2xl font-black text-[#dc2626] leading-none kannada-text drop-shadow-sm">
+          <h2 className="text-xl sm:text-2xl font-black text-[#15803d] leading-none kannada-text drop-shadow-sm">
             {HOTEL_INFO.kannadaName}
           </h2>
           <p className="text-xs sm:text-sm font-extrabold text-[#15803d] tracking-wide serif-text mt-1">

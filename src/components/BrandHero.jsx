@@ -47,10 +47,10 @@ export default function BrandHero({ onOpenCallModal, onOpenEmblemView }) {
             </span>
           </div>
 
-          <h1 className="text-lg sm:text-2xl font-black text-red-800 dark:text-amber-400 kannada-text leading-snug mt-1 break-words">
+          <h1 className="text-lg sm:text-2xl font-black text-[#15803d] dark:text-emerald-400 kannada-text leading-snug mt-1 break-words">
             {HOTEL_INFO.kannadaName}
           </h1>
-          <h2 className="text-[11px] sm:text-xs md:text-sm font-extrabold text-stone-900 dark:text-stone-200 serif-text uppercase tracking-wider leading-snug break-words">
+          <h2 className="text-[11px] sm:text-xs md:text-sm font-extrabold text-[#15803d] dark:text-emerald-400 serif-text uppercase tracking-wider leading-snug break-words">
             {HOTEL_INFO.englishName}
           </h2>
 
