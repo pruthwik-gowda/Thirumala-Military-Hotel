@@ -8,7 +8,7 @@ export default function PhoneModal({ isOpen, onClose, onCopyPhone }) {
   const phone1 = HOTEL_INFO.phones[0];
   const phone2 = HOTEL_INFO.phones[1];
   const whatsappUrl = `https://wa.me/91${phone1}?text=${encodeURIComponent(
-    'ನಮಸ್ಕಾರ / Hello Thirumala Military Hotel, I would like to inquire about today\'s menu and availability.'
+    'Hi, I would like to enquire about todays menu and availability'
   )}`;
 
   return (
