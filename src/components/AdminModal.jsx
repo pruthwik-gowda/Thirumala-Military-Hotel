@@ -82,7 +82,7 @@ export default function AdminModal({
       setPassword('');
       onShowToast('Welcome to Thirumala Menu Manager!');
     } else {
-      setLoginError('Invalid Passcode. Default is "admin123" or PIN "1985".');
+      setLoginError('Invalid Passcode. Please try again.');
     }
   };
 
@@ -260,7 +260,7 @@ export default function AdminModal({
                     setPassword(e.target.value);
                     setLoginError('');
                   }}
-                  placeholder="Enter passcode (default: admin123)"
+                  placeholder="Enter passcode"
                   className="w-full bg-stone-50 dark:bg-[#120e0c] border border-stone-300 dark:border-[#4a3629] rounded-xl px-3.5 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
                   autoFocus
                 />
@@ -284,11 +284,6 @@ export default function AdminModal({
                 Sign In to Admin
               </button>
             </form>
-
-            <div className="bg-amber-50 dark:bg-amber-950/40 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/40 text-left text-[11px] text-amber-900 dark:text-amber-300">
-              <span className="font-bold">🔑 Default Credentials:</span>
-              <p className="mt-0.5 opacity-90">Passcode: <code className="font-mono font-bold bg-amber-200/60 dark:bg-amber-900/60 px-1 py-0.5 rounded">admin123</code> or PIN <code className="font-mono font-bold bg-amber-200/60 dark:bg-amber-900/60 px-1 py-0.5 rounded">1985</code></p>
-            </div>
           </div>
         ) : (
           /* ADMIN DASHBOARD */
