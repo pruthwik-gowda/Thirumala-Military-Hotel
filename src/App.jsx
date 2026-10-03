@@ -257,32 +257,13 @@ export default function App() {
         )}
 
         {lightboxData.type === 'logo' && (
-          <div className="bg-[#fbf5e8] p-6 rounded-3xl flex items-center justify-center border-4 border-amber-600 shadow-2xl max-w-xs mx-auto">
-            <div className="w-64 h-64">
-              <svg className="w-full h-full" viewBox="0 0 500 500" aria-label="Thirumala Military Hotel Emblem">
-                <circle cx="250" cy="250" r="242" fill="#801010" stroke="#f59e0b" strokeWidth="4"/>
-                <circle cx="250" cy="250" r="234" fill="#FBF5E8"/>
-                <g stroke="#805b38" strokeWidth="3" fill="#cf9d72" opacity="0.95">
-                  <ellipse cx="250" cy="405" rx="55" ry="30" fill="#c48a58"/>
-                  <ellipse cx="140" cy="355" rx="42" ry="24"/>
-                  <ellipse cx="360" cy="355" rx="42" ry="24"/>
-                  <ellipse cx="110" cy="210" rx="38" ry="22"/>
-                  <ellipse cx="390" cy="210" rx="38" ry="22"/>
-                  <ellipse cx="160" cy="115" rx="32" ry="18" fill="#c48a58"/>
-                  <ellipse cx="340" cy="115" rx="32" ry="18" fill="#c48a58"/>
-                  <ellipse cx="250" cy="95" rx="42" ry="22"/>
-                </g>
-                <circle cx="250" cy="250" r="145" fill="#fcf9f2" stroke="#681919" strokeWidth="6"/>
-                <circle cx="250" cy="250" r="136" fill="none" stroke="#681919" strokeWidth="2" strokeDasharray="4,4"/>
-                <path id="curve-seal-lb" d="M 140 230 A 110 110 0 0 1 360 230" fill="none"/>
-                <text fontFamily="'Cinzel', serif" fontSize="28" fontWeight="900" fill="#541212" letterSpacing="4">
-                  <textPath href="#curve-seal-lb" startOffset="50%" textAnchor="middle">THIRUMALA</textPath>
-                </text>
-                <text x="250" y="275" fontFamily="'Cinzel', 'Times New Roman', serif" fontSize="76" fontWeight="900" fill="#541212" textAnchor="middle" stroke="#ffffff" strokeWidth="3" paintOrder="stroke fill">TM</text>
-                <line x1="175" y1="298" x2="325" y2="298" stroke="#681919" strokeWidth="2.5"/>
-                <text x="250" y="318" fontFamily="'Cinzel', serif" fontSize="20" fontWeight="900" fill="#541212" letterSpacing="3" textAnchor="middle">MILITARY</text>
-                <text x="250" y="340" fontFamily="'Cinzel', serif" fontSize="18" fontWeight="800" fill="#541212" letterSpacing="2" textAnchor="middle">HOTEL</text>
-              </svg>
+          <div className="bg-[#fbf5e8] p-4 sm:p-6 rounded-3xl flex items-center justify-center border-4 border-amber-600 shadow-2xl max-w-sm mx-auto">
+            <div className="w-72 h-72 sm:w-80 sm:h-80">
+              <img
+                src="/logo-tm.png"
+                alt="Thirumala Military Hotel Emblem"
+                className="w-full h-full object-contain rounded-full shadow-lg"
+              />
             </div>
           </div>
         )}

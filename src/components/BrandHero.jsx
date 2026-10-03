@@ -22,33 +22,13 @@ export default function BrandHero({ onOpenCallModal, onOpenEmblemView }) {
           className="cursor-pointer shrink-0 group text-left relative focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-full"
           title="Click to view full hotel seal"
         >
-          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full border-2 border-amber-500 bg-[#fbf5e8] shadow-md group-hover:scale-105 transition-transform flex items-center justify-center p-0.5 relative">
-            <svg className="w-full h-full" viewBox="0 0 500 500" aria-label="Thirumala Military Hotel Emblem">
-              <circle cx="250" cy="250" r="242" fill="#801010" stroke="#f59e0b" strokeWidth="4"/>
-              <circle cx="250" cy="250" r="234" fill="#FBF5E8"/>
-              {/* Vintage Brass Pots & Vessels illustration */}
-              <g stroke="#805b38" strokeWidth="3" fill="#cf9d72" opacity="0.95">
-                <ellipse cx="250" cy="405" rx="55" ry="30" fill="#c48a58"/>
-                <ellipse cx="140" cy="355" rx="42" ry="24"/>
-                <ellipse cx="360" cy="355" rx="42" ry="24"/>
-                <ellipse cx="110" cy="210" rx="38" ry="22"/>
-                <ellipse cx="390" cy="210" rx="38" ry="22"/>
-                <ellipse cx="160" cy="115" rx="32" ry="18" fill="#c48a58"/>
-                <ellipse cx="340" cy="115" rx="32" ry="18" fill="#c48a58"/>
-                <ellipse cx="250" cy="95" rx="42" ry="22"/>
-              </g>
-              <circle cx="250" cy="250" r="145" fill="#fcf9f2" stroke="#681919" strokeWidth="6"/>
-              <circle cx="250" cy="250" r="136" fill="none" stroke="#681919" strokeWidth="2" strokeDasharray="4,4"/>
-              <path id="curve-seal-hero" d="M 140 230 A 110 110 0 0 1 360 230" fill="none"/>
-              <text fontFamily="'Cinzel', serif" fontSize="28" fontWeight="900" fill="#541212" letterSpacing="4">
-                <textPath href="#curve-seal-hero" startOffset="50%" textAnchor="middle">THIRUMALA</textPath>
-              </text>
-              <text x="250" y="275" fontFamily="'Cinzel', 'Times New Roman', serif" fontSize="76" fontWeight="900" fill="#541212" textAnchor="middle" stroke="#ffffff" strokeWidth="3" paintOrder="stroke fill">TM</text>
-              <line x1="175" y1="298" x2="325" y2="298" stroke="#681919" strokeWidth="2.5"/>
-              <text x="250" y="318" fontFamily="'Cinzel', serif" fontSize="20" fontWeight="900" fill="#541212" letterSpacing="3" textAnchor="middle">MILITARY</text>
-              <text x="250" y="340" fontFamily="'Cinzel', serif" fontSize="18" fontWeight="800" fill="#541212" letterSpacing="2" textAnchor="middle">HOTEL</text>
-            </svg>
-            <span className="absolute -bottom-1 -right-1 bg-amber-600 text-white rounded-full p-1 text-[10px] shadow leading-none" title="Expand">🔍</span>
+          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full border-2 border-amber-500 bg-[#fbf5e8] shadow-md group-hover:scale-105 transition-transform flex items-center justify-center p-1 relative overflow-hidden">
+            <img
+              src="/logo-tm.png"
+              alt="Thirumala Military Hotel Emblem"
+              className="w-full h-full object-contain rounded-full"
+            />
+            <span className="absolute bottom-0 right-0 bg-amber-600 text-white rounded-full p-1 text-[10px] shadow leading-none" title="Expand">🔍</span>
           </div>
         </button>
 

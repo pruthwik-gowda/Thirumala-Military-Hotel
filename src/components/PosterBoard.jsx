@@ -31,14 +31,12 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
 
         {/* Brand Title Header */}
         <div className="flex items-center justify-between gap-2.5 pt-0.5">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-600 bg-white p-0.5 shrink-0 shadow-sm">
-            <svg className="w-full h-full" viewBox="0 0 500 500">
-              <circle cx="250" cy="250" r="240" fill="#881313"/>
-              <circle cx="250" cy="250" r="226" fill="#F8F2E2"/>
-              <circle cx="250" cy="250" r="140" fill="#fdfbf7" stroke="#681919" strokeWidth="6"/>
-              <text x="250" y="275" fontFamily="'Cinzel', serif" fontSize="76" fontWeight="900" fill="#541212" textAnchor="middle">TM</text>
-              <text x="250" y="325" fontFamily="'Cinzel', serif" fontSize="20" fontWeight="800" fill="#541212" textAnchor="middle">MILITARY HOTEL</text>
-            </svg>
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-600 bg-white p-0.5 shrink-0 shadow-sm overflow-hidden flex items-center justify-center">
+            <img
+              src="/logo-tm.png"
+              alt="Thirumala Military Hotel Emblem"
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
 
           <div className="flex-1 text-center">
