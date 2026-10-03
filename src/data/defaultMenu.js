@@ -336,8 +336,9 @@ export const HOTEL_INFO = {
   taglineKannada: 'ಒಲೆ ಊಟ...! • ನಾಟಿ ಸ್ಟೈಲ್...!',
   taglineEnglish: 'Traditional Woodfire Cooking • Authentic Nati Military Taste',
   address: 'No.18/06, Next to Sattva Lumina Apartment, Rajanukunte, Bengaluru',
-  mapsQuery: 'https://www.google.com/maps/search/?api=1&query=Sattva+Lumina+Apartment+Rajanukunte+Bengaluru',
-  phones: ['7795085362', '9916065117'],
+  phones: ['+91 77950 85362', '+91 99160 65117'],
+  telPhones: ['+917795085362', '+919916065117'],
+  waPhone: '917795085362',
   cateringTag: 'We Undertake Outdoor Catering Service also',
   invocations: [
     '॥ ಶ್ರೀ ಚೆಲುವನಾರಾಯಣ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥',

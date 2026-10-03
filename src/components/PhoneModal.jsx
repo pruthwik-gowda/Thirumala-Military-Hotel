@@ -7,7 +7,10 @@ export default function PhoneModal({ isOpen, onClose, onCopyPhone }) {
 
   const phone1 = HOTEL_INFO.phones[0];
   const phone2 = HOTEL_INFO.phones[1];
-  const whatsappUrl = `https://wa.me/91${phone1}?text=${encodeURIComponent(
+  const tel1 = HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : `+917795085362`;
+  const tel2 = HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[1] : `+919916065117`;
+  const waNumber = HOTEL_INFO.waPhone || '917795085362';
+  const whatsappUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
     'Hi, I would like to enquire about todays menu and availability'
   )}`;
 
@@ -46,7 +49,7 @@ export default function PhoneModal({ isOpen, onClose, onCopyPhone }) {
         <div className="space-y-2 pt-1">
           <div className="flex items-center gap-1.5">
             <a
-              href={`tel:${phone1}`}
+              href={`tel:${tel1}`}
               className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm transition shadow"
             >
               <Phone className="w-4 h-4" />
@@ -63,7 +66,7 @@ export default function PhoneModal({ isOpen, onClose, onCopyPhone }) {
 
           <div className="flex items-center gap-1.5">
             <a
-              href={`tel:${phone2}`}
+              href={`tel:${tel2}`}
               className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs sm:text-sm transition shadow border border-stone-600"
             >
               <Phone className="w-4 h-4" />
