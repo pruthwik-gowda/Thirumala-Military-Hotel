@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Kannada:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap');
+
+:root {
+  --font-kannada: 'Noto Sans Kannada', sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-vintage: 'Rozha One', serif;
+
+  /* Light Theme (Default) */
+  --bg-primary: #f7efe2;
+  --bg-pattern: #decbb2;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #fbf5e8;
+  --text-primary: #292524;
+  --text-secondary: #57534e;
+  --text-accent: #881313;
+  --border-color: #e2d3be;
+  --border-highlight: #ca8a04;
+}
+
+html.dark {
+  /* Dark Theme */
+  --bg-primary: #110e0c;
+  --bg-pattern: #291e17;
+  --bg-card: #1c1613;
+  --bg-card-subtle: #251d18;
+  --text-primary: #f5f5f4;
+  --text-secondary: #a8a29e;
+  --text-accent: #f59e0b;
+  --border-color: #3e2c21;
+  --border-highlight: #f59e0b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(var(--bg-pattern) 1px, transparent 1px), 
+    radial-gradient(var(--bg-pattern) 1px, var(--bg-primary) 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.kannada-text {
+  font-family: var(--font-kannada);
+}
+
+.serif-text {
+  font-family: var(--font-serif);
+}
+
+.vintage-text {
+  font-family: var(--font-vintage);
+}
+
+.poster-glow {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(136, 19, 19, 0.3);
+}
+
+html.dark .poster-glow {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px #881313;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-card-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ca8a04;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #4a3729;
+}
+
+/* Lightbox transition */
+#lightbox-zoom-container {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+  touch-action: none;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}

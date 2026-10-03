@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <circle cx="250" cy="250" r="242" fill="#801010" stroke="#f59e0b" stroke-width="4"/>
+  <circle cx="250" cy="250" r="234" fill="#FBF5E8"/>
+  <g stroke="#805b38" stroke-width="3" fill="#cf9d72" opacity="0.95">
+    <ellipse cx="250" cy="405" rx="55" ry="30" fill="#c48a58"/>
+    <ellipse cx="140" cy="355" rx="42" ry="24"/>
+    <ellipse cx="360" cy="355" rx="42" ry="24"/>
+    <ellipse cx="110" cy="210" rx="38" ry="22"/>
+    <ellipse cx="390" cy="210" rx="38" ry="22"/>
+    <ellipse cx="160" cy="115" rx="32" ry="18" fill="#c48a58"/>
+    <ellipse cx="340" cy="115" rx="32" ry="18" fill="#c48a58"/>
+    <ellipse cx="250" cy="95" rx="42" ry="22"/>
+  </g>
+  <circle cx="250" cy="250" r="145" fill="#fcf9f2" stroke="#681919" stroke-width="6"/>
+  <circle cx="250" cy="250" r="136" fill="none" stroke="#681919" stroke-width="2" stroke-dasharray="4,4"/>
+  <path id="curve-seal" d="M 140 230 A 110 110 0 0 1 360 230" fill="none"/>
+  <text font-family="'Cinzel', serif" font-size="28" font-weight="900" fill="#541212" letter-spacing="4">
+    <textPath href="#curve-seal" startOffset="50%" text-anchor="middle">THIRUMALA</textPath>
+  </text>
+  <text x="250" y="275" font-family="'Cinzel', 'Times New Roman', serif" font-size="76" font-weight="900" fill="#541212" text-anchor="middle" stroke="#ffffff" stroke-width="3" paint-order="stroke fill">TM</text>
+  <line x1="175" y1="298" x2="325" y2="298" stroke="#681919" stroke-width="2.5"/>
+  <text x="250" y="318" font-family="'Cinzel', serif" font-size="20" font-weight="900" fill="#541212" letter-spacing="3" text-anchor="middle">MILITARY</text>
+  <text x="250" y="340" font-family="'Cinzel', serif" font-size="18" font-weight="800" fill="#541212" letter-spacing="2" text-anchor="middle">HOTEL</text>
+</svg>
