@@ -4,13 +4,10 @@ import FoodHighlights from './FoodHighlights';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
 export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpenCallModal }) {
-  // Split items into Left Column (Mutton & Staples) and Right Column (Chicken & Soups)
-  const leftColumnItems = items.filter(
-    (item) => item.column === 'left' || item.category === 'mutton' || item.category === 'staples'
-  );
-  const rightColumnItems = items.filter(
-    (item) => item.column === 'right' || item.category === 'chicken' || item.category === 'soups'
-  );
+  // Balanced columns: always fill the left column first, then right column
+  const midPoint = Math.ceil(items.length / 2);
+  const leftColumnItems = items.slice(0, midPoint);
+  const rightColumnItems = items.slice(midPoint);
 
   const isEvening = activeTiming === 'evening';
 
