@@ -3,7 +3,7 @@ import { Maximize2, Phone, MapPin } from 'lucide-react';
 import FoodHighlights from './FoodHighlights';
 import { HOTEL_INFO } from '../data/defaultMenu';
 
-export default function PosterBoard({ items, activeTiming, showPrices = false, onOpenLightbox, onOpenCallModal }) {
+export default function PosterBoard({ items, activeTiming, showPrices = false, isLightbox = false, onOpenLightbox, onOpenCallModal }) {
   // Balanced columns: always fill the left column first, then right column
   const midPoint = Math.ceil(items.length / 2);
   const leftColumnItems = items.slice(0, midPoint);
@@ -13,9 +13,11 @@ export default function PosterBoard({ items, activeTiming, showPrices = false, o
 
   return (
     <div
-      onClick={onOpenLightbox}
-      className="poster-glow bg-[#f97316] p-2 sm:p-2.5 rounded-2xl cursor-pointer group relative overflow-hidden transition-all duration-200 active:scale-[0.99]"
-      title="Click or tap to view full screen poster"
+      onClick={isLightbox ? undefined : onOpenLightbox}
+      className={`poster-glow bg-[#f97316] p-2 sm:p-2.5 rounded-2xl relative overflow-hidden ${
+        isLightbox ? '' : 'cursor-pointer group transition-all duration-200 active:scale-[0.99]'
+      }`}
+      title={isLightbox ? undefined : 'Click or tap to view full screen poster'}
     >
       <div className="bg-[#fbf5e8] text-stone-900 rounded-xl p-2.5 sm:p-3.5 space-y-2.5 border-2 border-amber-600/40">
         
@@ -217,10 +219,12 @@ export default function PosterBoard({ items, activeTiming, showPrices = false, o
       </div>
 
       {/* Floating Enlarge Indicator Badge */}
-      <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-lg group-hover:scale-105 transition-transform">
-        <Maximize2 className="w-3.5 h-3.5 text-amber-400" />
-        <span>Tap to Enlarge</span>
-      </div>
+      {!isLightbox && (
+        <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-lg group-hover:scale-105 transition-transform">
+          <Maximize2 className="w-3.5 h-3.5 text-amber-400" />
+          <span>Tap to Enlarge</span>
+        </div>
+      )}
     </div>
   );
 }

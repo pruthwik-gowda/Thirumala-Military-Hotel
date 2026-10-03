@@ -301,15 +301,17 @@ export default function App() {
         onClose={() => setLightboxData({ isOpen: false, title: '', type: '' })}
       >
         {lightboxData.type === 'poster' && (
-          <div className="bg-[#fbf5e8] text-stone-900 rounded-2xl p-3 border-4 border-amber-600 shadow-2xl">
-            <PosterBoard
-              items={filteredDishes}
-              activeTiming={activeTiming}
-              showPrices={showPrices}
-              onOpenLightbox={() => {}}
-              onOpenCallModal={() => setIsCallModalOpen(true)}
-            />
-          </div>
+          <PosterBoard
+            items={filteredDishes}
+            activeTiming={activeTiming}
+            showPrices={showPrices}
+            isLightbox={true}
+            onOpenLightbox={() => {}}
+            onOpenCallModal={() => {
+              setLightboxData({ isOpen: false, title: '', type: '' });
+              setIsCallModalOpen(true);
+            }}
+          />
         )}
 
         {lightboxData.type === 'logo' && (
