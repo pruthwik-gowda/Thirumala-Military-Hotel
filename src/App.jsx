@@ -4,6 +4,7 @@ import BrandHero from './components/BrandHero';
 import SearchAndFilters from './components/SearchAndFilters';
 import PosterBoard from './components/PosterBoard';
 import DishCardView from './components/DishCardView';
+import TimingsBanner from './components/TimingsBanner';
 import SundaySpecialBanner from './components/SundaySpecialBanner';
 import PhoneModal from './components/PhoneModal';
 import LightboxModal from './components/LightboxModal';
@@ -214,7 +215,10 @@ export default function App() {
           )}
         </section>
 
-        {/* 5. Sunday Special Leg Soup Banner */}
+        {/* 5. Hotel Operational Timings Standalone Banner */}
+        <TimingsBanner />
+
+        {/* 6. Sunday Special Leg Soup Banner */}
         <SundaySpecialBanner
           legSoupItem={legSoupItem}
           onOpenCallModal={() => setIsCallModalOpen(true)}

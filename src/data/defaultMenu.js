@@ -348,7 +348,7 @@ export const HOTEL_INFO = {
   cateringTag: 'We Undertake Outdoor Catering Service also',
   invocations: [
     '॥ ಶ್ರೀ ಚೆಲುವನಾರಾಯಣ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥',
-    '॥ ಶ್ರೀ ಬಿಜ್ಜಳ್ಳ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥'
+    '॥ ಶ್ರೀ ಚಿಕ್ಕಣ್ಣ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥'
   ]
 };
 
