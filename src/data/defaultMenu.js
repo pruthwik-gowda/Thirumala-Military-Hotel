@@ -340,6 +340,11 @@ export const HOTEL_INFO = {
   phones: ['+91 77950 85362', '+91 73497 29646'],
   telPhones: ['+917795085362', '+917349729646'],
   waPhone: '917795085362',
+  timings: {
+    morning: '11:00 AM – 4:00 PM',
+    evening: '6:00 PM – 9:30 PM',
+    sunday: '7:00 AM – 4:00 PM'
+  },
   cateringTag: 'We Undertake Outdoor Catering Service also',
   invocations: [
     '॥ ಶ್ರೀ ಚೆಲುವನಾರಾಯಣ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥',

@@ -62,7 +62,7 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
           <span className="inline-flex items-center gap-1.5 bg-[#881313] text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
             <span>{isEvening ? '🌙' : '🌅'}</span>
             <span>
-              -: {isEvening ? 'Evening Menu • ಸಂಜೆಯ ಊಟ' : 'Morning Menu • ಬೆಳಗಿನ ಊಟ'} :-
+              -: {isEvening ? '6:00 PM – 9:30 PM • ಸಂಜೆಯ ಊಟ' : '11:00 AM – 4:00 PM • ಬೆಳಗಿನ ಊಟ'} :-
             </span>
           </span>
         </div>

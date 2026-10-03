@@ -14,7 +14,7 @@ export default function SundaySpecialBanner({ legSoupItem, onOpenCallModal }) {
         <div className="flex-1">
           <div className="inline-flex items-center gap-1 bg-black/40 text-amber-300 text-[10px] font-black uppercase px-2 py-0.5 rounded-full border border-amber-400/30">
             <Sparkles className="w-3 h-3 text-amber-300 animate-spin" style={{ animationDuration: '6s' }} />
-            <span>⚡ SUNDAY SPECIAL ⚡</span>
+            <span>⚡ SUNDAYS: 7:00 AM – 4:00 PM ⚡</span>
           </div>
 
           <h3 className="text-lg sm:text-xl font-black kannada-text text-yellow-300 drop-shadow-sm mt-1">
@@ -22,7 +22,7 @@ export default function SundaySpecialBanner({ legSoupItem, onOpenCallModal }) {
           </h3>
 
           <p className="text-[11px] text-amber-100/90 leading-tight mt-0.5">
-            Authentic Wood-fire cooked Leg Soup available every Sunday morning
+            Authentic Wood-fire cooked Leg Soup available every Sunday early morning from 7:00 AM!
           </p>
 
           <div className="flex items-center gap-2 mt-2">
