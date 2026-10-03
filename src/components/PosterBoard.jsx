@@ -178,11 +178,18 @@ export default function PosterBoard({ items, activeTiming, onOpenLightbox, onOpe
               </div>
             </div>
 
-            {/* Location QR Code representation */}
-            <div className="w-13 h-13 bg-stone-100 border border-stone-700 rounded-lg p-1 flex flex-col items-center justify-center shrink-0 shadow-inner">
+            {/* Location Map button */}
+            <a
+              href={HOTEL_INFO.mapsQuery}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="w-13 h-13 bg-stone-100 hover:bg-amber-100 border border-stone-700 rounded-lg p-1 flex flex-col items-center justify-center shrink-0 shadow-inner transition active:scale-95"
+              title="Open Google Maps directions"
+            >
               <span className="text-[8px] font-bold text-stone-700">Map</span>
               <span className="text-xl leading-none">📍</span>
-            </div>
+            </a>
           </div>
 
           {/* Phone numbers */}

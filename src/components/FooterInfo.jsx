@@ -17,10 +17,16 @@ export default function FooterInfo({ onCopyPhone, onOpenAdmin, isAdminLoggedIn }
         </p>
 
         <div className="pt-2 border-t border-amber-200/60 dark:border-stone-800/80 text-[11px] text-stone-700 dark:text-stone-300 flex items-center justify-center gap-2 flex-wrap">
-          <span className="flex items-center gap-1">
+          <a
+            href={HOTEL_INFO.mapsQuery}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:underline text-stone-700 dark:text-stone-300"
+            title="Open in Google Maps"
+          >
             <MapPin className="w-3.5 h-3.5 text-red-500" />
             <span>Rajanukunte, Bengaluru</span>
-          </span>
+          </a>
           <span>•</span>
           <a
             href={`tel:${HOTEL_INFO.telPhones ? HOTEL_INFO.telPhones[0] : '+917795085362'}`}
